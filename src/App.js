@@ -56,7 +56,7 @@ class App extends Component {
       this.setState({
         curPlaylistId: res._id
       });
-      <Redirect to={'/' + res._id} />
+      // <Redirect to={'/' + res._id} />
     })
     .catch(err => {
       console.log(err);
