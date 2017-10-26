@@ -6,8 +6,7 @@ import './App.css';
 import {
   BrowserRouter as Router,
   Route,
-  Switch,
-  Redirect
+  Switch
 } from 'react-router-dom';
 
 class App extends Component {
@@ -20,10 +19,12 @@ class App extends Component {
       curPlaylistDescr: ''
     }
 
-    this.onSubmitPlaylist = this.onSubmitPlaylist.bind(this);
-    this.handleNameChange = this.handleNameChange.bind(this);
-    this.handleDescrChange = this.handleDescrChange.bind(this);
-    this.handlePlaylistDelete = this.handlePlaylistDelete.bind(this);
+    this.semiAutobind(['onSubmitPlaylist', 'handlePlaylistDelete',
+      'handleDescrChange', 'handleNameChange', 'renderLanding', 'renderPlaylist']);
+  }
+
+  semiAutobind(fns) {
+    fns.forEach(fn => this[fn] = this[fn].bind(this));
   }
 
   handleDescrChange(e) {
@@ -53,27 +54,43 @@ class App extends Component {
       description: this.state.curPlaylistDescr
     })
     .then(res => {
+      let playlistId = res.data._id;
       this.setState({
-        curPlaylistId: res._id
+        curPlaylistId: playlistId
       });
-      <Redirect to={'/' + res._id} />
+      window.location.replace(`/${playlistId}`)
     })
     .catch(err => {
       console.log(err);
     })
   }
 
-  render() {
-    let playlistId = this.state.curPlaylistId;
+  renderLanding(props) {
+    return(
+      <Landing {...props}
+        handleNameChange={this.handleNameChange}
+        handleDescrChange={this.handleDescrChange}
+        onSubmitPlaylist={this.onSubmitPlaylist} />
+    );
+  }
 
+  renderPlaylist(props) {
+    return(
+      <Playlist {...props}
+        handlePlaylistDelete={this.handlePlaylistDelete}
+        playlistId={this.state.curPlaylistId} />
+    );
+  }
+
+  render() {
     return (
       <div className="App">
         <Router>
           <Switch>
             <Route exact path="/"
-              render={props => <Landing {...props} handleNameChange={this.handleNameChange} handleDescrChange={this.handleDescrChange} onSubmitPlaylist={this.onSubmitPlaylist} />} />
+              render={this.renderLanding} />
             <Route path={'/:id'}
-              render={props => <Playlist {...props} handlePlaylistDelete={this.handlePlaylistDelete} playlistId={playlistId} />} />
+              render={this.renderPlaylist} />
           </Switch>
         </Router>
       </div>
