@@ -11,10 +11,7 @@ class Landing extends Component {
         </header>
         <div className="main">
           <h2>To Begin, Create a Playlist.</h2>
-          <CreatePlaylist
-            handleNameChange={this.props.handleNameChange}
-            handleDescrChange={this.props.handleDescrChange}
-            onSubmitPlaylist={this.props.onSubmitPlaylist} />
+          <CreatePlaylist />
         </div>
       </div>
     );

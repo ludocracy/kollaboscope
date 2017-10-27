@@ -44,9 +44,11 @@ class Playlist extends Component {
             <h2 className="playlist-descr">{this.state.description}</h2>
           </div>
           <nav>
-            <button id="go-home" onClick={this.props.handlePlaylistDelete}>Go Back Home</button>
+            <button id="go-home"
+              onClick={() => {}}>Go Back Home</button>
           </nav>
-          <button id="deletePlaylistBtn">Delete playlist</button>
+          <button id="deletePlaylistBtn"
+            onClick={this.props.handlePlaylistDelete}>Delete playlist</button>
         </header>
         <Search />
         <Songs />
