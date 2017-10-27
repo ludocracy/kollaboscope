@@ -5,8 +5,7 @@ import axios from 'axios';
 import './App.css';
 import {
   BrowserRouter as Router,
-  Route,
-  Switch
+  Route
 } from 'react-router-dom';
 
 class App extends Component {
@@ -14,7 +13,6 @@ class App extends Component {
     super(props);
 
     this.state = {
-      curPlaylistId: null,
       curPlaylistName: '',
       curPlaylistDescr: ''
     }
@@ -41,7 +39,6 @@ class App extends Component {
 
   handlePlaylistDelete(e) {
     this.setState({
-      curPlaylistId: null,
       curPlaylistName: '',
       curPlaylistDescr: ''
     })
@@ -54,11 +51,7 @@ class App extends Component {
       description: this.state.curPlaylistDescr
     })
     .then(res => {
-      let playlistId = res.data._id;
-      this.setState({
-        curPlaylistId: playlistId
-      });
-      window.location.replace(`/${playlistId}`)
+      window.location.replace(`/${res.data._id}`)
     })
     .catch(err => {
       console.log(err);
@@ -75,10 +68,10 @@ class App extends Component {
   }
 
   renderPlaylist(props) {
+    console.log('renderPlaylist', this);
     return(
       <Playlist {...props}
-        handlePlaylistDelete={this.handlePlaylistDelete}
-        playlistId={this.state.curPlaylistId} />
+        handlePlaylistDelete={this.handlePlaylistDelete} />
     );
   }
 
@@ -86,12 +79,12 @@ class App extends Component {
     return (
       <div className="App">
         <Router>
-          <Switch>
+          <div>
             <Route exact path="/"
               render={this.renderLanding} />
             <Route path={'/:id'}
               render={this.renderPlaylist} />
-          </Switch>
+          </div>
         </Router>
       </div>
     );
