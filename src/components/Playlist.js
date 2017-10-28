@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Search from './Search';
 import Songs from './Songs';
-import axios from 'axios';
+import '../styles/Playlist.css';
+import { database, firebaseListToArray } from '../utils/firebase';
 
 class Playlist extends Component {
   constructor(props) {
@@ -23,24 +24,24 @@ class Playlist extends Component {
 
   getPlaylistInfo() {
     // TODO get host URL from env var
-    axios.get(`http://localhost:3000/playlists/${this.state.playlistId}`)
-    .then(res => {
-      this.setState({
-        songs: res.data.songs,
-        name: res.data.name,
-        descr: res.data.description
-      });
-    })
-    .catch(err => console.log(err) )
+    // axios.get(`http://localhost:3000/playlists/${this.state.playlistId}`)
+    // .then(res => {
+    //   this.setState({
+    //     songs: res.data.songs,
+    //     name: res.data.name,
+    //     descr: res.data.description
+    //   });
+    // })
+    // .catch(err => console.log(err) )
   }
 
   deletePlaylist() {
     // TODO get host URL from env var
-    axios.delete(`http://localhost:3000/playlists/${this.state.playlistId}`)
-    .then(res => {
-      this.redirectHome();
-    })
-    .catch(err => console.log(err));
+    // axios.delete(`http://localhost:3000/playlists/${this.state.playlistId}`)
+    // .then(res => {
+    //   this.redirectHome();
+    // })
+    // .catch(err => console.log(err));
   }
 
   componentWillMount() {

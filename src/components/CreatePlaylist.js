@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import '../App.css';
-import axios from 'axios';
+import '../styles/CreatePlaylist.css';
+import { database, firebaseListToArray } from '../utils/firebase';
 
 class CreatePlaylist extends Component {
   constructor(props) {
@@ -11,16 +11,16 @@ class CreatePlaylist extends Component {
 
   onSubmitPlaylist(e) {
     e.preventDefault();
-    axios.post('http://localhost:3000/playlists', {
-      name: this.name.value,
-      description: this.descr.value
-    })
-    .then(res => {
-      window.location.replace(`/${res.data._id}`);
-    })
-    .catch(err => {
-      console.log(err);
-    })
+    // axios.post('http://localhost:3000/playlists', {
+    //   name: this.name.value,
+    //   description: this.descr.value
+    // })
+    // .then(res => {
+    //   window.location.replace(`/${res.data._id}`);
+    // })
+    // .catch(err => {
+    //   console.log(err);
+    // })
   }
 
   render() {

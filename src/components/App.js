@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Landing from './components/Landing';
-import Playlist from './components/Playlist';
-import './App.css';
+import Landing from './Landing';
+import Playlist from './Playlist';
+import '../styles/App.css';
 import {
   BrowserRouter as Router,
   Route

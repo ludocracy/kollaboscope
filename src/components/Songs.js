@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Player from './Player';
+import { database, firebaseListToArray } from '../utils/firebase';
+import '../styles/Songs.css';
 
 class Songs extends Component {
   constructor(props) {

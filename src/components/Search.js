@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+import '../styles/Search.css';
 
 class Search extends Component {
   render() {
