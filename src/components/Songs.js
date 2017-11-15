@@ -8,13 +8,13 @@ class Songs extends Component {
     super(props);
 
     this.state = {
-      songs: this.props.songs
+      songs: []
     }
 
-    this.deleteSong = this.deleteSong.bind(this);
+    this._handleDeleteSong = this._handleDeleteSong.bind(this);
   }
 
-  deleteSong(e) {
+  _handleDeleteSong(e) {
     // TODO axio call to API
     // set state
 
@@ -34,7 +34,7 @@ class Songs extends Component {
         <ul className="song-container">
           {songAry}
         </ul>
-        <button id="deleteSongBtn" onClick={this.deleteSong}>Delete Song from Playlist</button>
+        <button id="deleteSongBtn" onClick={this._handleDeleteSong}>Delete Song from Playlist</button>
         <Player />
       </div>
     );

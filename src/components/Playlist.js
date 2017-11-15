@@ -8,47 +8,41 @@ class Playlist extends Component {
   constructor(props) {
     super(props);
 
-    let playlistId = window.location.pathname.slice(1);
     this.state = {
-      playlistId: playlistId,
-      songs: [],
       name: '',
-      descr: ''
-    };
+      description: ''
+    }
 
-    this.getPlaylistInfo = this.getPlaylistInfo.bind(this);
-    this.deletePlaylist = this.deletePlaylist.bind(this);
+    this._handleDeletePlaylist = this._handleDeletePlaylist.bind(this);
+  }
+  componentDidMount() {
+    // pulling playlist id from url since routing didn't work
+    this.playlistId = window.location.pathname.slice(1);
+
+    // setting db reference for this playlist
+    this.ref = database.ref(`playlists/${this.playlistId}`);
+
+    // listening for changes to this playlist's info
+    this.ref.on('value', snapshot => {
+      this.setState({
+        name: snapshot.val().name,
+        description: snapshot.val().description
+      });
+    });
   }
 
-  // TODO websocket client code to invoke getPlaylistInfo()
-
-  getPlaylistInfo() {
-    // TODO get host URL from env var
-    // axios.get(`http://localhost:3000/playlists/${this.state.playlistId}`)
-    // .then(res => {
-    //   this.setState({
-    //     songs: res.data.songs,
-    //     name: res.data.name,
-    //     descr: res.data.description
-    //   });
-    // })
-    // .catch(err => console.log(err) )
+  componentWillUnmount() {
+    this.ref.off();
   }
 
-  deletePlaylist() {
-    // TODO get host URL from env var
-    // axios.delete(`http://localhost:3000/playlists/${this.state.playlistId}`)
-    // .then(res => {
-    //   this.redirectHome();
-    // })
-    // .catch(err => console.log(err));
+  _handleDeletePlaylist() {
+    this.ref.remove();
+
+    // redirect home
+    this._goHome();
   }
 
-  componentWillMount() {
-    this.getPlaylistInfo();
-  }
-
-  redirectHome() {
+  _goHome() {
     window.location.replace('/');
   }
 
@@ -62,13 +56,13 @@ class Playlist extends Component {
           </div>
           <nav>
             <button id="go-home"
-              onClick={this.redirectHome}>Go Back Home</button>
+              onClick={this._goHome}>Go Back Home</button>
           </nav>
           <button id="deletePlaylistBtn"
-            onClick={this.deletePlaylist}>Delete playlist</button>
+            onClick={this._handleDeletePlaylist}>Delete playlist</button>
         </header>
         <Search />
-        <Songs songs={this.state.songs} />
+        <Songs playlistId={this.playlistId} />
       </div>
     )
   }
