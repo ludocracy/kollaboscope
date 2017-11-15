@@ -19,7 +19,6 @@ app.auth().onAuthStateChanged(function(user) {
     if (user) {
         // User is signed in.
         window.user = user;
-        console.log("User:", user.uid);
     } else {
         app.auth().signInAnonymously().catch(function(error) {
             console.log(error);

@@ -11,7 +11,7 @@ class Landing extends Component {
         </header>
         <div className="main">
           <h2>To Begin, Create a Playlist.</h2>
-          <CreatePlaylist />
+          <CreatePlaylist _handleCreatePlaylist={this.props._handleCreatePlaylist} />
         </div>
       </div>
     );
