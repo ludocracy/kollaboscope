@@ -4,25 +4,37 @@ import '../styles/Search.css';
 import SearchResults from './SearchResults';
 
 class Search extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      results: []
+    }
+
+    this._handleSubmitSearch = this._handleSubmitSearch.bind(this);
+  }
+
   _handleSubmitSearch(e) {
     e.preventDefault();
-    let query = '';
+    let query = this.query.value;
     let url = `https://www.googleapis.com/youtube/v3/search${query}`
     let params = {
-        q: query,
-        part: 'snippet',
-        type: 'video',
-        maxResults: '10',
-        key: 'AIzaSyA57V2_-uR3DOFwmcmH8qZzr0ZXffXdaPY'
-      };
+      q: query,
+      part: 'snippet',
+      type: 'video',
+      maxResults: '10',
+      key: 'AIzaSyA57V2_-uR3DOFwmcmH8qZzr0ZXffXdaPY'
+    };
 
     axios.get(url, params)
     .then(response => {
-
+      this.setState({
+        results: response.items
+      });
     })
     .catch(error => {
       console.log(error); // TODO alert user somehow?
-    })
+    });
   }
 
   render() {
@@ -34,7 +46,7 @@ class Search extends Component {
             <input type="text" placeholder="type in a song" ref={input => this.query = input} />
             <button id="youtube-search-btn" type="submit">Search Youtube</button>
           </form>
-
+          <SearchResults results={this.state.results} />
         </div>
       </div>
     );
