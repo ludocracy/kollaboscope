@@ -2,10 +2,7 @@ import React, { Component } from 'react';
 import Landing from './Landing';
 import Playlist from './Playlist';
 import '../styles/App.css';
-import {
-  BrowserRouter as Router,
-  Route
-} from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 class App extends Component {
   render() {

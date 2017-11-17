@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { database, firebaseListToArray } from '../utils/firebase';
-import './styles/SearchResults.css';
+import '../styles/SearchResults.css';
 
 class SearchResults extends Component {
   render() {
