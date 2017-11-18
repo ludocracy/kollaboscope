@@ -48,7 +48,7 @@ class Search extends Component {
             <input type="text" placeholder="type in a song" ref={input => this.query = input} />
             <button id="youtube-search-btn" type="submit">Search Youtube</button>
           </form>
-          <SearchResults results={this.state.results} />
+          <SearchResults playlistRef={this.props.playlistRef} results={this.state.results} />
         </div>
       </div>
     );

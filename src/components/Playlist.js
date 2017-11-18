@@ -61,7 +61,7 @@ class Playlist extends Component {
           <button id="deletePlaylistBtn"
             onClick={this._handleDeletePlaylist}>Delete playlist</button>
         </header>
-        <Search />
+        <Search playlistRef={this.ref} />
         <Songs playlistId={this.playlistId} />
       </div>
     )

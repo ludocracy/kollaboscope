@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { database, firebaseListToArray } from '../utils/firebase';
 import '../styles/SearchResults.css';
 import SearchResult from './SearchResult';
 
@@ -23,7 +22,8 @@ class SearchResults extends Component {
   render() {
     let resultComps = this.props.results.map((result, key) => {
         return <SearchResult key={key} isSelected={this.state.selectedResult === result}
-          result={result} _handleSelectResult={this._handleSelectResult} />
+          result={result} _handleSelectResult={this._handleSelectResult}
+          playlistRef={this.props.playlistRef} />
     });
 
     return(
