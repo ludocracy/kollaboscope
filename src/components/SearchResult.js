@@ -6,11 +6,11 @@ class SearchResult extends Component {
   constructor(props) {
     super(props);
 
-    this._handleAddSong = this._handleAddSong.bind(this);
+    this._handleAddVideo = this._handleAddVideo.bind(this);
   }
 
-  _handleAddSong(e) {
-    this.props.playlistRef.child('songs/').push(this.props.result)
+  _handleAddVideo(e) {
+    this.props.playlistRef.child('videos/').push(this.props.result)
     .then(() => {
       // TODO maybe update display somehow? collapse search container?
     })
@@ -24,7 +24,7 @@ class SearchResult extends Component {
 
     let thumbnailComp = this.props.isSelected
       ? <div>
-          <button onClick={this._handleAddSong}>Add to playlist</button>
+          <button onClick={this._handleAddVideo}>Add to playlist</button>
           <img src={data.thumbnails.default.url}/>
         </div>
       : <div/>

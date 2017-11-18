@@ -41,11 +41,11 @@ class Search extends Component {
 
   render() {
     return(
-      <div className="song-crud display-element">
-        <div className="song-search">
+      <div className="video-crud display-element">
+        <div className="video-search">
           <form id="searchForm" onSubmit={this._handleSubmitSearch}>
-            <p>Search and Add Songs:</p>
-            <input type="text" placeholder="type in a song" ref={input => this.query = input} />
+            <p>Search and Add Videos:</p>
+            <input type="text" placeholder="type in a video" ref={input => this.query = input} />
             <button id="youtube-search-btn" type="submit">Search Youtube</button>
           </form>
           <SearchResults playlistRef={this.props.playlistRef} results={this.state.results} />

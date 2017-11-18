@@ -28,11 +28,11 @@ class SearchResults extends Component {
 
     return(
       <section id="youtube-search-res">
-        <div className="song-search-results">
+        <div className="video-search-results">
           { resultComps }
         </div>
-        <button id="createSongBtn">Add Song to Playlist</button>
-        <div id="song-search-thumbnail">
+        <button id="createVideoBtn">Add Video to Playlist</button>
+        <div id="video-search-thumbnail">
 
         </div>
       </section>

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-// import './styles/Player.css';
+import YouTube from 'react-youtube';
 
 class Player extends Component {
   render() {
     return(
-      <div id="song-embed">
-
+      <div id="video-embed">
+        <YouTube />
       </div>
     )
   }

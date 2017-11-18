@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Search from './Search';
-import Songs from './Songs';
+import Videos from './Videos';
 import '../styles/Playlist.css';
 import { database, firebaseListToArray } from '../utils/firebase';
 
@@ -62,7 +62,7 @@ class Playlist extends Component {
             onClick={this._handleDeletePlaylist}>Delete playlist</button>
         </header>
         <Search playlistRef={this.ref} />
-        <Songs playlistId={this.playlistId} />
+        <Videos playlistRef={this.ref} />
       </div>
     )
   }
