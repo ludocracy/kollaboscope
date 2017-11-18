@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Search from './Search';
 import Videos from './Videos';
 import '../styles/Playlist.css';
-import { database, firebaseListToArray } from '../utils/firebase';
+import { database } from '../utils/firebase';
 
 class Playlist extends Component {
   constructor(props) {

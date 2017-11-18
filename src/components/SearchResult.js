@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { database } from '../utils/firebase';
 import '../styles/SearchResult.css';
 
 class SearchResult extends Component {

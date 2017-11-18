@@ -31,10 +31,6 @@ class SearchResults extends Component {
         <div className="video-search-results">
           { resultComps }
         </div>
-        <button id="createVideoBtn">Add Video to Playlist</button>
-        <div id="video-search-thumbnail">
-
-        </div>
       </section>
     );
   }

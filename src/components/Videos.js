@@ -1,40 +1,57 @@
 import React, { Component } from 'react';
 import Player from './Player';
-import { database, firebaseListToArray } from '../utils/firebase';
 import '../styles/Videos.css';
+import Video from './Video';
+import { firebaseListToArray } from '../utils/firebase';
+
 
 class Videos extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      selectedVideo: null,
       videos: []
     }
 
-    this._handleDeleteVideo = this._handleDeleteVideo.bind(this);
+    this._handleSelectVideo = this._handleSelectVideo.bind(this);
   }
 
-  _handleDeleteVideo(e) {
-    // TODO axio call to API
-    // set state
+  _handleSelectVideo(video) {
+    this.setState({
+      selectedVideo: video
+    });
+  }
 
-    // TODO make this a button on the video item and make video item its own Component
+  componentDidMount() {
+    this.videosRef = this.props.playlistRef.child('videos/');
+    this.videosRef.on('value', snapshot => {
+      this.setState({
+        videos: firebaseListToArray(snapshot.val())
+      });
+    })
+  }
+
+  componentWillUnmount() {
+    this.videosRef.off();
   }
 
   render() {
-    let videoAry = this.state.videos.map(video => {
-      return (
-        <li className="videoItem" youtube-hash={video.youTubeHash}
-          id={video._id}>{video.title}</li>
-      )
-    })
+    let videoComps = this.state.videos.map((video, key) => {
+      return(
+        <Video key={key} video={video}
+          videosRef={this.videosRef}
+          _handleSelectVideo={this._handleSelectVideo}
+          isSelected={this.state.selectedVideo === video}/>
+      );
+    });
+
     return(
-      <div className="overflow-container">
+      <div className="Videos overflow-container">
         <p id="select-prompt">Select A Video to Play:</p>
         <ul className="video-container">
-          {videoAry}
+          { videoComps }
         </ul>
-        <button id="deleteVideoBtn" onClick={this._handleDeleteVideo}>Delete Video from Playlist</button>
         <Player />
       </div>
     );
