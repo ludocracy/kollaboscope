@@ -17,19 +17,21 @@ class Search extends Component {
   _handleSubmitSearch(e) {
     e.preventDefault();
     let query = this.query.value;
-    let url = `https://www.googleapis.com/youtube/v3/search${query}`
+    let url = `https://www.googleapis.com/youtube/v3/search`
     let params = {
-      q: query,
-      part: 'snippet',
-      type: 'video',
-      maxResults: '10',
-      key: 'AIzaSyA57V2_-uR3DOFwmcmH8qZzr0ZXffXdaPY'
+      params: {
+        q: query,
+        part: 'snippet',
+        type: 'video',
+        maxResults: '10',
+        key: 'AIzaSyA57V2_-uR3DOFwmcmH8qZzr0ZXffXdaPY'
+      }
     };
 
     axios.get(url, params)
     .then(response => {
       this.setState({
-        results: response.items
+        results: response.data.items
       });
     })
     .catch(error => {
