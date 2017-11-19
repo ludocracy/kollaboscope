@@ -15,6 +15,7 @@ class Videos extends Component {
     }
 
     this._handleSelectVideo = this._handleSelectVideo.bind(this);
+    this._handlePlayVideo = this._handlePlayVideo.bind(this);
   }
 
   _handleSelectVideo(video) {
@@ -23,14 +24,18 @@ class Videos extends Component {
     });
   }
 
+  _handlePlayVideo() {
+    let videoId = this.state.video.id.videoId;
+    this.setState
+  }
+
   componentDidMount() {
-    console.log('*** this.props.playlistRef ***', this.props.playlistRef);
-    // this.videosRef = this.props.playlistRef.child('videos/');
-    // this.videosRef.on('value', snapshot => {
-    //   this.setState({
-    //     videos: firebaseListToArray(snapshot.val())
-    //   });
-    // });
+    this.videosRef = this.props.playlistRef.child('videos/');
+    this.videosRef.on('value', snapshot => {
+      this.setState({
+        videos: firebaseListToArray(snapshot.val())
+      });
+    });
   }
 
   componentWillUnmount() {
@@ -43,13 +48,14 @@ class Videos extends Component {
         <Video key={key} video={video}
           videosRef={this.videosRef}
           _handleSelectVideo={this._handleSelectVideo}
+          _handlePlayVideo={this._handlePlayVideo}
           isSelected={this.state.selectedVideo === video}/>
       );
     });
 
     return(
       <div className="Videos overflow-container">
-        <p id="select-prompt">Select A Video to Play:</p>
+        <h2 id="select-prompt">Select A Video to Play:</h2>
         <ul className="video-container">
           { videoComps }
         </ul>
