@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../styles/CreatePlaylist.css';
-import { database, firebaseListToArray } from '../utils/firebase';
+import { database } from '../utils/firebase';
 
 class CreatePlaylist extends Component {
   constructor(props) {

@@ -24,11 +24,9 @@ class SearchResult extends Component {
     let thumbnailComp = this.props.isSelected
       ? <div>
           <button onClick={this._handleAddVideo}>Add to playlist</button>
-          <img src={data.thumbnails.default.url}/>
+          <img src={data.thumbnails.default.url} alt={data.title}/>
         </div>
       : <div/>
-
-    let thumbnail = data.thumbnails.default;
 
     return(
       <div className="SearchResult"
