@@ -24,13 +24,13 @@ class Videos extends Component {
   }
 
   componentDidMount() {
-    this.videosRef = this.props.playlistRef.child('videos/');
-    console.log(this.videosRef)
-    this.videosRef.on('value', snapshot => {
-      this.setState({
-        videos: firebaseListToArray(snapshot.val())
-      });
-    })
+    console.log('*** this.props.playlistRef ***', this.props.playlistRef);
+    // this.videosRef = this.props.playlistRef.child('videos/');
+    // this.videosRef.on('value', snapshot => {
+    //   this.setState({
+    //     videos: firebaseListToArray(snapshot.val())
+    //   });
+    // });
   }
 
   componentWillUnmount() {

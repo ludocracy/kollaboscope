@@ -10,20 +10,25 @@ class Playlist extends Component {
 
     this.state = {
       name: '',
-      description: ''
+      description: '',
+      playlistRef: null // loading db reference in state because it loads asynchronously
     }
 
     this._handleDeletePlaylist = this._handleDeletePlaylist.bind(this);
   }
+
   componentDidMount() {
     // pulling playlist id from url since routing didn't work
-    this.playlistId = window.location.pathname.slice(1);
+    let playlistId = window.location.pathname.slice(1);
+    let playlistRef = database.ref(`playlists/${playlistId}`);
 
     // setting db reference for this playlist
-    this.ref = database.ref(`playlists/${this.playlistId}`);
+    this.setState({
+      playlistRef: playlistRef
+    });
 
     // listening for changes to this playlist's info
-    this.ref.on('value', snapshot => {
+    playlistRef.on('value', snapshot => {
       this.setState({
         name: snapshot.val().name,
         description: snapshot.val().description
@@ -32,14 +37,15 @@ class Playlist extends Component {
   }
 
   componentWillUnmount() {
-    this.ref.off();
+    this.state.playlistRef.off();
   }
 
   _handleDeletePlaylist() {
-    this.ref.remove();
+    if(window.confirm("Are you sure? Anyone else who uses this playlist will no longer be able to!")) {
+      this.state.playlistRef.remove();
 
-    // redirect home
-    this._goHome();
+      this._goHome();
+    }
   }
 
   _goHome() {
@@ -47,24 +53,28 @@ class Playlist extends Component {
   }
 
   render() {
-    return(
-      <div>
-        <header>
-          <div id="playlist-title">
-            <h1 className="playlist-name">{this.state.name}</h1>
-            <h2 className="playlist-descr">{this.state.description}</h2>
-          </div>
-          <nav>
-            <button id="go-home"
-              onClick={this._goHome}>Go Back Home</button>
-          </nav>
-          <button id="deletePlaylistBtn"
-            onClick={this._handleDeletePlaylist}>Delete playlist</button>
-        </header>
-        <Search playlistRef={this.ref} />
-        <Videos playlistRef={this.ref} />
-      </div>
-    )
+    if(this.state.playlistRef) {
+      return(
+        <div>
+          <header>
+            <div id="playlist-title">
+              <h1 className="playlist-name">{this.state.name}</h1>
+              <h2 className="playlist-descr">{this.state.description}</h2>
+            </div>
+            <nav>
+              <button id="go-home"
+                onClick={this._goHome}>Go Back Home</button>
+            </nav>
+            <button id="deletePlaylistBtn"
+              onClick={this._handleDeletePlaylist}>Delete playlist</button>
+          </header>
+          <Search playlistRef={this.state.playlistRef} />
+          <Videos playlistRef={this.state.playlistRef} />
+        </div>
+      );
+    } else {
+      return <div/>
+    }
   }
 }
 

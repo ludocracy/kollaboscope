@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { database, firebaseListToArray } from '../utils/firebase';
 import '../styles/Video.css';
 
 class Video extends Component {
@@ -10,16 +9,21 @@ class Video extends Component {
   }
 
   _handleDeleteVideo(e) {
-    this.props.videosRef // TODO delete this.props.video from here
+    // this.props.videosRef
   }
 
   render() {
+    let video = this.props.video.snippet;
     let videoComp = this.props.isSelected
-      // ? < show thumbnail and delete button >
-      // : <just show video title and maybe playtime?
+      ? <div>
+          <img src={video.thumbnails.default} alt={video.title}/>
+          <button onClick={this._handleDeleteVideo}></button>
+        </div>
+      : <div/>;
     return(
-      <div className="Video">
-        <button id="deleteVideoBtn" onClick={this._handleDeleteVideo}>Delete Video from Playlist</button>
+      <div className="Video" onClick={e => this.props._handleSelectVideo(this.props.video)}>
+        <p>{video.title}</p>
+        { videoComp }
       </div>
     );
   }
