@@ -33,13 +33,13 @@ class Videos extends Component {
   }
 
   _playNextVideo() {
-    let lastVideoIndex = this.state.videos.findIndex(video => video === this.state.playingVideo);
+    let lastVideoIndex = this.state.videos.findIndex(videoRef => videoRef === this.state.playingVideoRef);
     let nextVideoIndex = lastVideoIndex + 1;
     if(nextVideoIndex === this.state.videos.length) {
       nextVideoIndex = 0;
     }
     this.setState({
-      playingVideo: this.state.videos[nextVideoIndex]
+      playingVideoRef: this.state.videos[nextVideoIndex]
     });
   }
 
