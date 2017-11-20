@@ -19,7 +19,7 @@ class Video extends Component {
           <img src={video.thumbnails.default.url} alt={video.title}/>
           <button className="delete-video-btn"
             onClick={this._handleDeleteVideo}>Delete</button>
-          <button clasName="play-video-btn"
+          <button className="play-video-btn"
             onClick={this.props._handlePlayVideo}>Play</button>
         </div>
       : <div/>;

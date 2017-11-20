@@ -11,6 +11,7 @@ class Videos extends Component {
 
     this.state = {
       selectedVideo: null,
+      playingVideoId: null,
       videos: []
     }
 
@@ -25,8 +26,10 @@ class Videos extends Component {
   }
 
   _handlePlayVideo() {
-    let videoId = this.state.video.id.videoId;
-    this.setState
+    let videoId = this.state.selectedVideo.id.videoId;
+    this.setState({
+      playingVideoId: videoId
+    });
   }
 
   componentDidMount() {
@@ -39,7 +42,7 @@ class Videos extends Component {
   }
 
   componentWillUnmount() {
-    // this.videosRef.off();
+    this.videosRef.off();
   }
 
   render() {
@@ -59,7 +62,7 @@ class Videos extends Component {
         <ul className="video-container">
           { videoComps }
         </ul>
-        <Player />
+        <Player videoId={this.state.playingVideoId}/>
       </div>
     );
   }
