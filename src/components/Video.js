@@ -10,7 +10,7 @@ class Video extends Component {
 
   _handleDeleteVideo(e) {
     if(this.props.videoRef) {
-      this.props.videoRef.remove();
+      this.props.videoRef.ref.remove();
     }
   }
 
