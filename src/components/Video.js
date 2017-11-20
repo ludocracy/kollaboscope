@@ -9,11 +9,13 @@ class Video extends Component {
   }
 
   _handleDeleteVideo(e) {
-    // this.props.videosRef
+    if(this.props.videoRef) {
+      this.props.videoRef.remove();
+    }
   }
 
   render() {
-    let video = this.props.video.snippet;
+    let video = this.props.videoRef.val().snippet;
     let videoComp = this.props.isSelected
       ? <div>
           <img src={video.thumbnails.default.url} alt={video.title}/>
@@ -24,7 +26,7 @@ class Video extends Component {
         </div>
       : <div/>;
     return(
-      <div className="Video" onClick={e => this.props._handleSelectVideo(this.props.video)}>
+      <div className="Video" onClick={e => this.props._handleSelectVideo(this.props.videoRef)}>
         <p>{video.title}</p>
         { videoComp }
       </div>

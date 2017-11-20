@@ -10,8 +10,8 @@ class Videos extends Component {
     super(props);
 
     this.state = {
-      selectedVideo: null,
-      playingVideo: { id: '' },
+      selectedVideoRef: null,
+      playingVideoRef: null,
       videos: []
     }
 
@@ -20,15 +20,15 @@ class Videos extends Component {
     this._playNextVideo = this._playNextVideo.bind(this);
   }
 
-  _handleSelectVideo(video) {
+  _handleSelectVideo(videoRef) {
     this.setState({
-      selectedVideo: video
+      selectedVideoRef: videoRef
     });
   }
 
   _handlePlayVideo() {
     this.setState({
-      playingVideo: this.state.selectedVideo
+      playingVideoRef: this.state.selectedVideoRef
     });
   }
 
@@ -46,8 +46,12 @@ class Videos extends Component {
   componentDidMount() {
     this.videosRef = this.props.playlistRef.child('videos/');
     this.videosRef.on('value', snapshot => {
+      let videoRefAry = [];
+      snapshot.forEach(videoRef => {
+        videoRefAry.push(videoRef);
+      })
       this.setState({
-        videos: firebaseListToArray(snapshot.val())
+        videos: videoRefAry
       });
     });
   }
@@ -57,13 +61,13 @@ class Videos extends Component {
   }
 
   render() {
-    let videoComps = this.state.videos.map((video, key) => {
+    console.log('re-rendering Videos');
+    let videoComps = this.state.videos.map((videoRef, key) => {
       return(
-        <Video key={key} video={video}
-          videosRef={this.videosRef}
+        <Video key={key} videoRef={videoRef}
           _handleSelectVideo={this._handleSelectVideo}
           _handlePlayVideo={this._handlePlayVideo}
-          isSelected={this.state.selectedVideo === video}/>
+          isSelected={this.state.selectedVideoRef === videoRef}/>
       );
     });
 
@@ -73,7 +77,7 @@ class Videos extends Component {
         <ul className="video-container">
           { videoComps }
         </ul>
-        <Player videoId={this.state.playingVideo.id.videoId}
+        <Player videoRef={this.state.playingVideoRef}
           _playNextVideo={this._playNextVideo}/>
       </div>
     );

@@ -20,19 +20,27 @@ class Player extends Component {
   }
 
   render() {
-    let opts = {
-      playerVars: {
-        autoplay: 1
-      }
-    };
+    if(this.props.videoRef) {
+      let opts = {
+        playerVars: {
+          autoplay: 1
+        }
+      };
 
-    return(
-      <div id="video-embed">
-        <YouTube videoId={this.props.videoId} opts={opts}
-        onReady={this._handleOnReady}
-        onStateChange={this._handleStateChange}/>
-      </div>
-    );
+      let videoId = this.props.videoRef.val().id.videoId;
+
+      return(
+        <div id="video-embed">
+          <YouTube videoId={videoId} opts={opts}
+          onReady={this._handleOnReady}
+          onStateChange={this._handleStateChange}/>
+        </div>
+      );
+    } else {
+      return(
+        <div />
+      )
+    }
   }
 }
 
