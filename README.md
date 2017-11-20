@@ -34,6 +34,7 @@
   - share playlist buttons (fb, instagram, email, etc)
   - admin controls if user is owner of Playlist
     - lock add/remove songs
+    - set public/private
     - apply content filters
       - no NSFW
       - no repeated Videos
