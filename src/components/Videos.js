@@ -11,12 +11,13 @@ class Videos extends Component {
 
     this.state = {
       selectedVideo: null,
-      playingVideoId: null,
+      playingVideo: { id: '' },
       videos: []
     }
 
     this._handleSelectVideo = this._handleSelectVideo.bind(this);
     this._handlePlayVideo = this._handlePlayVideo.bind(this);
+    this._playNextVideo = this._playNextVideo.bind(this);
   }
 
   _handleSelectVideo(video) {
@@ -26,9 +27,19 @@ class Videos extends Component {
   }
 
   _handlePlayVideo() {
-    let videoId = this.state.selectedVideo.id.videoId;
     this.setState({
-      playingVideoId: videoId
+      playingVideo: this.state.selectedVideo
+    });
+  }
+
+  _playNextVideo() {
+    let lastVideoIndex = this.state.videos.findIndex(video => video === this.state.playingVideo);
+    let nextVideoIndex = lastVideoIndex + 1;
+    if(nextVideoIndex === this.state.videos.length) {
+      nextVideoIndex = 0;
+    }
+    this.setState({
+      playingVideo: this.state.videos[nextVideoIndex]
     });
   }
 
@@ -62,7 +73,8 @@ class Videos extends Component {
         <ul className="video-container">
           { videoComps }
         </ul>
-        <Player videoId={this.state.playingVideoId}/>
+        <Player videoId={this.state.playingVideo.id.videoId}
+          _playNextVideo={this._playNextVideo}/>
       </div>
     );
   }
