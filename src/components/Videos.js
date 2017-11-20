@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Player from './Player';
 import '../styles/Videos.css';
 import Video from './Video';
-import { firebaseListToArray } from '../utils/firebase';
 
 
 class Videos extends Component {
