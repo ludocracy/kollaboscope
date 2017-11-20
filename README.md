@@ -41,4 +41,4 @@
       - only results from give playlist or tags
 ### Landing
   - give user option to log in
-  -
+  - hitting enter should submit the createplaylist form
