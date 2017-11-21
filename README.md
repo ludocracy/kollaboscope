@@ -27,6 +27,7 @@
   - style when a video is selected
   - style add video button (maybe a '+' icon?)
 ### Playlist
+  - ***make it clear that the url can be copied and shared***
   - show who is in the room
   - make buttons larger and style "delete" button clearly so user avoids it unless needed
     - only allow owner to delete
