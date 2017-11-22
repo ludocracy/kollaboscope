@@ -11,6 +11,7 @@ class Videos extends Component {
     this.state = {
       selectedVideoRef: null,
       playingVideoRef: null,
+      lastPlayTimeStamp: Date.now(),
       videos: []
     }
 
@@ -27,6 +28,7 @@ class Videos extends Component {
 
   _handlePlayVideo() {
     this.setState({
+      lastPlayTimeStamp: Date.now(),
       playingVideoRef: this.state.selectedVideoRef
     });
   }
@@ -38,6 +40,7 @@ class Videos extends Component {
       nextVideoIndex = 0;
     }
     this.setState({
+      lastPlayTimeStamp: Date.now(),
       playingVideoRef: this.state.videos[nextVideoIndex]
     });
   }
@@ -48,10 +51,17 @@ class Videos extends Component {
       let videoRefAry = [];
       snapshot.forEach(videoRef => {
         videoRefAry.push(videoRef);
-      })
+      });
+
       this.setState({
         videos: videoRefAry
       });
+      if(Date.now() - this.state.lastPlayTimeStamp > 10000) { // interruption mode!!
+        this.setState({
+          lastPlayTimeStamp: Date.now(),
+          playingVideoRef: videoRefAry[videoRefAry.length-1]
+        })
+      }
     });
   }
 
