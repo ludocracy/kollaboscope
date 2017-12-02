@@ -38,12 +38,9 @@ class Videos extends Component {
       return videoId === playingVideoId
     });
     let nextVideoIndex = lastVideoIndex + 1;
-    console.log('playing next video')
-    console.log(`lastVideo at index ${lastVideoIndex} is: ${this.state.videos[lastVideoIndex].val().snippet.title}`)
     if(nextVideoIndex === this.state.videos.length) {
       nextVideoIndex = 0;
     }
-    console.log(`nextVideo at index ${nextVideoIndex} is: ${this.state.videos[nextVideoIndex].val().snippet.title}`)
     this.setState({
       playingVideoRef: this.state.videos[nextVideoIndex]
     });
