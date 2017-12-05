@@ -2,6 +2,16 @@
 This project is a fork of a group project for General Assembly [located here](https://github.com/ludocracy/project-01) originally written in jQuery with an Express backend.
 
 This app was rewritten in React with a Firebase backend. [Try it here!](https://kollaboscope-183217.firebaseapp.com/).
+## Instructions
+### To develop this project
+1. fork and clone this project
+2. `npm install`
+3. `yarn start`
+### To deploy this project to your own firebase instance
+1. Install Firebase CLI
+2. `firebase init`
+3. `yarn build`
+4. `firebase deploy`
 
 # tasks
 ## General
@@ -10,6 +20,7 @@ This app was rewritten in React with a Firebase backend. [Try it here!](https://
   - shorter room codes instead of firebase reference keys
   - auth
   - footer with links to github and byline
+  - update README to look more profesh
 ## By component
 ### Videos
   - synchronized listening using youtube's 'seek' methods
