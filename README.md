@@ -1,3 +1,8 @@
+# Kollaboscope
+This project is a fork of a group project for General Assembly [located here](https://github.com/ludocracy/project-01) originally written in jQuery with an Express backend.
+
+This app was rewritten in React with a Firebase backend. [Try it here!](https://kollaboscope-183217.firebaseapp.com/).
+
 # tasks
 ## General
   - fonts
