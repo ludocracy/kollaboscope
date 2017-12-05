@@ -6,7 +6,15 @@ This app was rewritten in React with a Firebase backend. [Try it here!](https://
 ### To develop this project
 1. fork and clone this project
 2. `npm install`
-3. `yarn start`
+3.  add a .env file with credentials to an existing firebase database
+```
+REACT_APP_API_KEY=<YOUR-API-KEY>
+REACT_APP_AUTH_DOMAIN=<YOUR-AUTH-DOMAIN>
+REACT_APP_DATABASE_URL=<YOUR-DATABASE-URL>
+REACT_APP_STORAGE_BUCKET=""
+REACT_APP_MESSAGING_SENDER_ID=<YOUR-SENDER-ID>
+```
+4. `yarn start`
 ### To deploy this project to your own firebase instance
 1. Install Firebase CLI
 2. `firebase init`
@@ -58,4 +66,3 @@ This app was rewritten in React with a Firebase backend. [Try it here!](https://
       - only results from give playlist or tags
 ### Landing
   - give user option to log in
-  - hitting enter should submit the createplaylist form
