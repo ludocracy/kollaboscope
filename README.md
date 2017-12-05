@@ -4,9 +4,9 @@ This project is a fork of a group project for General Assembly [located here](ht
 This app was rewritten in React with a Firebase backend. [Try it here!](https://kollaboscope-183217.firebaseapp.com/).
 ## Instructions
 ### To develop this project
-1. fork and clone this project
-2. `npm install`
-3.  add a .env file with credentials to an existing firebase database
+1. fork and clone this project into a local directory
+2. navigate to the directory from your terminal and enter `npm install`
+3.  add a .env file with credentials to your own firebase instance
 ```
 REACT_APP_API_KEY=<YOUR-API-KEY>
 REACT_APP_AUTH_DOMAIN=<YOUR-AUTH-DOMAIN>
@@ -14,21 +14,24 @@ REACT_APP_DATABASE_URL=<YOUR-DATABASE-URL>
 REACT_APP_STORAGE_BUCKET=""
 REACT_APP_MESSAGING_SENDER_ID=<YOUR-SENDER-ID>
 ```
-4. `yarn start`
+4. from your terminal, enter `npm start` or `yarn start`
 ### To deploy this project to your own firebase instance
 1. Install Firebase CLI
 2. `firebase init`
+  - enter `build` for your public directory
 3. `yarn build`
 4. `firebase deploy`
 
 # tasks
 ## General
-  - fonts
   - general styling
+    - landing page done
+    - playlist page (WIP)
   - shorter room codes instead of firebase reference keys
   - auth
-  - footer with links to github and byline
+  - footer with links to github and byline (WIP -Karla)
   - update README to look more profesh
+    - still needs work
 ## By component
 ### Videos
   - synchronized listening using youtube's 'seek' methods
