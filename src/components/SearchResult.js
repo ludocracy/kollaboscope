@@ -22,9 +22,9 @@ class SearchResult extends Component {
     let data = this.props.result.snippet;
 
     let thumbnailComp = this.props.isSelected
-      ? <div>
-          <button onClick={this._handleAddVideo}>Add to playlist</button>
+      ? <div className="result-action">
           <img src={data.thumbnails.default.url} alt={data.title}/>
+          <button id="add-to-playlist-btn" onClick={this._handleAddVideo}>Add to playlist</button>
         </div>
       : <div/>
 

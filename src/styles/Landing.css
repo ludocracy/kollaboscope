@@ -2,6 +2,7 @@ body {
   display: flex;
   text-align: center;
   flex-direction: column;
+  overflow-x: hidden;
 }
 
 h1 {

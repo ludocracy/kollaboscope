@@ -3,7 +3,8 @@ button {
 }
 
 #searchInput {
-  width: 100%;
+  margin: 0 13%;
+  width: 75%;
   font-size: 16px;
 }
 
@@ -12,4 +13,19 @@ button {
   margin: 0 5px;
   max-height: 400px;
   overflow-y: scroll;
+}
+
+.SearchResult {
+  transition: all 1s ease;
+}
+
+.SearchResult:hover {
+  transition: all 1s ease;
+  background-color: rgba(0,0,0,.2);
+}
+
+.result-action>img {
+  display: flex;
+  margin: 0 43%;
+  padding: 0 0 5px 0;
 }

@@ -43,11 +43,8 @@ REACT_APP_MESSAGING_SENDER_ID=<YOUR-SENDER-ID>
 ### Search
   - get results for more than youtube
   - autocomplete suggestions (maybe in youtube search API?)
-### SearchResults
-  - return more results and make scrollable
 ### SearchResult
   - display video length
-  - style so user knows result can be selected
   - style when a video is selected
   - style add video button (maybe a '+' icon?)
 ### Playlist
