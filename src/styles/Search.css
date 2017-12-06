@@ -1,0 +1,42 @@
+button {
+  color: red;
+}
+
+#searchForm {
+  display: flex;
+  flex-direction: row;
+}
+
+#searchInput {
+  margin: 0;
+  width: 75%;
+  font-size: 16px;
+}
+
+#youtube-search-res {
+  padding: 5px 0 0 0;
+  margin: 0 5px;
+  max-height: 400px;
+  overflow-y: scroll;
+}
+
+.SearchResult {
+  transition: all 1s ease;
+}
+
+.SearchResult:hover {
+  transition: all 1s ease;
+  background-color: rgba(0,0,0,.2);
+}
+
+.result-action>img {
+  display: flex;
+  margin: 0 43%;
+  padding: 0 0 5px 0;
+}
+
+#youtube-search-btn {
+  width: 150px;
+  font-size: 14px;
+  margin-left: 5%;
+}

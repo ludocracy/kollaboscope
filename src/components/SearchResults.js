@@ -21,7 +21,7 @@ class SearchResults extends Component {
 
   render() {
     let resultComps = this.props.results.map((result, key) => {
-        return <SearchResult key={key} isSelected={this.state.selectedResult === result}
+        return <SearchResult className="search-result" key={key} isSelected={this.state.selectedResult === result}
           result={result} _handleSelectResult={this._handleSelectResult}
           playlistRef={this.props.playlistRef} />
     });

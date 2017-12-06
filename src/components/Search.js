@@ -23,7 +23,7 @@ class Search extends Component {
         q: query,
         part: 'snippet',
         type: 'video',
-        maxResults: '10',
+        maxResults: '25',
         key: 'AIzaSyA57V2_-uR3DOFwmcmH8qZzr0ZXffXdaPY'
       }
     };
@@ -43,9 +43,9 @@ class Search extends Component {
     return(
       <div className="video-crud display-element">
         <div className="video-search">
+          <h2>Search and Add Videos:</h2>
           <form id="searchForm" onSubmit={this._handleSubmitSearch}>
-            <p>Search and Add Videos:</p>
-            <input type="text" placeholder="type in a video" ref={input => this.query = input} />
+            <input id="searchInput"type="text" placeholder="type in a video" ref={input => this.query = input} />
             <button id="youtube-search-btn" type="submit">Search Youtube</button>
           </form>
           <SearchResults playlistRef={this.props.playlistRef} results={this.state.results} />
