@@ -35,17 +35,20 @@ REACT_APP_MESSAGING_SENDER_ID=<YOUR-SENDER-ID>
 ## By component
 ### Videos
   - synchronized listening using youtube's 'seek' methods
+  - add user feedback when clicking action buttons
 ### Video
   - display who added it
   - style when a video is currently playing
   - style when a video is selected
   - style so user knows video can be selected
 ### Search
+  - add user feedback when clicking action buttons
   - get results for more than youtube
   - autocomplete suggestions (maybe in youtube search API?)
 ### SearchResult
   - display video length
   - style when a video is selected
+  - add user feedback when clicking action buttons
 ### Playlist
   - ***make it clear that the url can be copied and shared***
   - show who is in the room
