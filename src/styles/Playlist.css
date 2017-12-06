@@ -1,0 +1,30 @@
+.playlist-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.playlist-name {
+  margin: 25px 0 0 0;
+}
+
+.playlist-descr {
+  margin: 20px 0 20px 0;
+}
+
+#deletePlaylistBtn {
+  background-color: red;
+}
+
+#deletePlaylistBtn:hover {
+  transition: all 500ms ease;
+  background-color: black;
+}
+
+#searchInput {
+}
+
+#share-link {
+  text-transform: none;
+  background-color: rgba(0,0,0,.5);
+  padding: 5px;
+}

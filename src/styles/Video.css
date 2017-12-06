@@ -1,5 +1,40 @@
 .Video {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
+  order: 2;
+  transition: all 500ms ease;
+  padding-bottom: 10px;
+}
+
+.Video:hover {
+  transition: all 1s ease;
+  background-color: rgba(0,0,0,.2);
+}
+
+.video-buttons {
+  transition: all 1s ease;
+}
+
+.Videos {
+  flex: 1;
+}
+
+.video-crud {
+  flex: 1;
+  order: 3;
+}
+
+ul {
+  padding: 0;
+}
+
+.delete-video-btn, .play-video-btn, #youtube-search-btn, #add-to-playlist-btn {
+  margin-top: 0;
+  border-radius: 15px;
+  padding: 10px;
+}
+
+.delete-video-btn {
+  background-color: red;
 }
