@@ -15,15 +15,11 @@
   order: 3;
 }
 
-#video-embed {
-
-}
-
 ul {
   padding: 0;
 }
 
-.delete-video-btn, .play-video-btn {
+.delete-video-btn, .play-video-btn, #youtube-search-btn {
   margin-top: 0;
   border-radius: 15px;
   padding: 10px;

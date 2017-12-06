@@ -23,7 +23,7 @@ class Search extends Component {
         q: query,
         part: 'snippet',
         type: 'video',
-        maxResults: '10',
+        maxResults: '25',
         key: 'AIzaSyA57V2_-uR3DOFwmcmH8qZzr0ZXffXdaPY'
       }
     };
