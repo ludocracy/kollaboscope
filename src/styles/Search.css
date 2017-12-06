@@ -1,3 +1,7 @@
 button {
   color: red;
 }
+
+#searchInput {
+  width: 100%;
+}
