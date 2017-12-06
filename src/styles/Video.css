@@ -35,6 +35,6 @@ ul {
   padding: 10px;
 }
 
-#youtube-search-btn {
-  margin-top: 5px;
+.delete-video-btn {
+  background-color: red;
 }

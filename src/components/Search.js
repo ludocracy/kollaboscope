@@ -43,8 +43,8 @@ class Search extends Component {
     return(
       <div className="video-crud display-element">
         <div className="video-search">
+          <h2>Search and Add Videos:</h2>
           <form id="searchForm" onSubmit={this._handleSubmitSearch}>
-            <h2>Search and Add Videos:</h2>
             <input id="searchInput"type="text" placeholder="type in a video" ref={input => this.query = input} />
             <button id="youtube-search-btn" type="submit">Search Youtube</button>
           </form>

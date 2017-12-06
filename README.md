@@ -46,7 +46,6 @@ REACT_APP_MESSAGING_SENDER_ID=<YOUR-SENDER-ID>
 ### SearchResult
   - display video length
   - style when a video is selected
-  - style add video button (maybe a '+' icon?)
 ### Playlist
   - ***make it clear that the url can be copied and shared***
   - show who is in the room

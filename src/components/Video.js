@@ -18,11 +18,10 @@ class Video extends Component {
     let video = this.props.videoRef.val().snippet;
     let videoComp = this.props.isSelected
       ? <div className="video-buttons">
-          {/* <img src={video.thumbnails.default.url} alt={video.title}/>*/}
-          <button className="delete-video-btn"
-            onClick={this._handleDeleteVideo}>Delete</button>
           <button className="play-video-btn"
             onClick={this.props._handlePlayVideo}>Play</button>
+          <button className="delete-video-btn"
+            onClick={this._handleDeleteVideo}>Delete</button>
         </div>
       : <div/>;
     return(
