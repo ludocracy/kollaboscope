@@ -1,3 +1,15 @@
-body {
+.playlist-container {
   display: flex;
+  flex-direction: row;
+}
+
+.playlist-name {
+  margin: 50px 0 0 0;
+}
+
+.playlist-descr {
+  margin: 20px 0 20px 0;
+}
+
+#searchInput {
 }

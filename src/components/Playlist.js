@@ -63,13 +63,17 @@ class Playlist extends Component {
             </div>
             <nav>
               <button id="go-home"
-                onClick={this._goHome}>Go Back Home</button>
+                onClick={this._goHome}>Go Back Home
+              </button>
+              <button id="deletePlaylistBtn"
+                onClick={this._handleDeletePlaylist}>Delete playlist
+              </button>
             </nav>
-            <button id="deletePlaylistBtn"
-              onClick={this._handleDeletePlaylist}>Delete playlist</button>
           </header>
-          <Search playlistRef={this.state.playlistRef} />
-          <Videos playlistRef={this.state.playlistRef} />
+          <div className="playlist-container">
+            <Search playlistRef={this.state.playlistRef} />
+            <Videos playlistRef={this.state.playlistRef} />
+          </div>
         </div>
       );
     } else {

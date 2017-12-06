@@ -82,7 +82,7 @@ class Videos extends Component {
         <ul className="video-container">
           { videoComps }
         </ul>
-        <Player videoRef={this.state.playingVideoRef}
+        <Player className="video-player" videoRef={this.state.playingVideoRef}
           _playNextVideo={this._playNextVideo}/>
       </div>
     );
