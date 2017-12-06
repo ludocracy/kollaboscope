@@ -57,6 +57,8 @@ class Playlist extends Component {
       return(
         <div>
           <header>
+            <p>copy and share this link to kollaborate with your friends:</p>
+            <span id="share-link">kollaboscope-183217.firebaseapp.com/{window.location.pathname.slice(1)}</span>
             <div id="playlist-title">
               <h1 className="playlist-name">{this.state.name}</h1>
               <h2 className="playlist-descr">{this.state.description}</h2>

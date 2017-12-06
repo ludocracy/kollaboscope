@@ -1,8 +1,9 @@
 .Video {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   order: 2;
+  transition: all 500ms ease;
 }
 
 .Videos {
@@ -16,4 +17,14 @@
 
 #video-embed {
 
+}
+
+ul {
+  padding: 0;
+}
+
+.delete-video-btn, .play-video-btn {
+  margin-top: 0;
+  border-radius: 15px;
+  padding: 10px;
 }
