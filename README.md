@@ -40,12 +40,9 @@ REACT_APP_MESSAGING_SENDER_ID=<YOUR-SENDER-ID>
   - style when a video is currently playing
   - style when a video is selected
   - style so user knows video can be selected
-  - style delete button (maybe 'x' icon?)
 ### Search
   - get results for more than youtube
-  - style search button with icon?
   - autocomplete suggestions (maybe in youtube search API?)
-  - style to make larger and more visible
 ### SearchResults
   - return more results and make scrollable
 ### SearchResult
